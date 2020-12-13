@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User 
+from django.urls import reverse
 
 # Create your models here.
 class Post(models.Model):
@@ -12,3 +13,7 @@ class Post(models.Model):
         return self.title + ' | ' + str(self.author)
     # an str is added to a self.author because i
     # ts an object and it needed to be converted to a string
+
+    def get_absolute_url(self):
+        #return reverse ('articles', args=(str(self.id)))
+        return reverse('home')

@@ -13,3 +13,9 @@ class HomeView(ListView):
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'articles.html'
+
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'add_post.html'
+    #fields = ['title', 'body'] ---> gotten from the models
+    fields = '__all__'

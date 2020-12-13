@@ -2,11 +2,12 @@
 {% block title %} Creat a new blogPost {% endblock %}
 {% block content %}
 <h1>Add posts </h1>
-<form method="POST">{% csrf_token %}
-    <br>
-    {{ form.as_p }}
-    <button class="btn btn-primary">post</button>
-</form>
-
-
+<br>
+<div clas='form-group'>
+    <form method="POST">{% csrf_token %}
+        <br>
+        {{ form.as_p }}
+        <button class="btn btn-primary">post</button>
+    </form>
+</div>
 {% endblock %}

@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+
 <h1>{{ post.title }}</h1>
 <small>by: {{ post.author }}</small>
 <hr>
@@ -5,4 +9,7 @@
 {{ post.body }}
 
 <br>
-<a href="{% url 'home' %}">Go back</a>
+<a href="{% url 'home' %}" <button type="button" class="btn btn-secondary"> Go back </button></a>
+<!-- The url has to be the name of the of the url added -->
+
+{% endblock %}

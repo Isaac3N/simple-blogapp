@@ -7,6 +7,8 @@
 <hr>
 <br>
 {{ post.body }}
+<a href="{% url 'update_post' post.pk %}">Update</a>
+<a href="{% url 'delete_post' post.pk %}">Delete</a>
 
 <br>
 <a href="{% url 'home' %}" <button type="button" class="btn btn-secondary"> Go back </button></a>

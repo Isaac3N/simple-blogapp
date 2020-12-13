@@ -1,1 +1,9 @@
-<h1>This is my home page</h1>
+<h1>Post</h1>
+
+<ul>
+{% for post in object_list %}
+<!--To loop through all the posts in the queryset(object_list)-->
+    <li><a href="{% url 'articles' post.pk %} "> {{post.title }} </a>- by {{ post.author }} - {{ post.author.email }}<br>
+        {{ post.body }}</li>
+{% endfor %}
+</ul>

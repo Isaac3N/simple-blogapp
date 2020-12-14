@@ -26,6 +26,14 @@
     
 </form>
 <br> <br>
+<hr>
+<h2>Comments... </h2>
+{% if post.comments.all %}
+    {% for comment in post.comments.all %}
+        <strong>{{ comment.name }} - {{ comment.date_added }}</strong> <br>
+    {% endfor %}
+{% endif %}
+<br> <br>
 <a href="{% url 'home' %}" <button type="button" class="btn btn-secondary"> Go back </button></a>
 <!-- The url has to be the name of the of the url added -->
 

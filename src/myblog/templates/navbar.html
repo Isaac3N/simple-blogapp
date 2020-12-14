@@ -8,7 +8,10 @@
       <ul class="navbar-nav mr-auto">
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'add_post' %}">Add a new post</a>
+              <a class="nav-link" href="{% url 'add_post' %}">Add new post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add_category' %}">Add category</a>
             </li>
           {% endif %}
         <li class="nav-item dropdown">

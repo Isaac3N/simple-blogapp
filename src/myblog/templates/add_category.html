@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-{% block title %} Creat a new blogPost {% endblock %}
+{% block title %} Add category {% endblock %}
 {% block content %}
-{% if user.is_authenticated %} 
-    <h1>Add posts </h1>
+{% if user.is_authenticated %}
+    <h1>Add a category </h1>
     <br>
     <div clas='form-group'>
         <form method="POST">{% csrf_token %}
             <br>
             {{ form.as_p }}
-            <button class="btn btn-primary">post</button>
+            <button class="btn btn-primary">add category</button>
         </form>
     </div>
 {% else %}

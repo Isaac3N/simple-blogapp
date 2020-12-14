@@ -7,7 +7,7 @@
 <hr>
 <br>
 {{ post.body|safe }}
-<p>category: {{ post.category }}</p>
+<p>category: <a href="{% url 'category' post.category|slugify %}">{{ post.category|slugify }}</a></p>
 {% if user.is_authenticated %}
     <br>
     <a href="{% url 'update_post' post.pk %}">Update</a>

@@ -2,8 +2,6 @@
 {% block content %}
 {% if category_posts %}
     <h1>{{ cats }} category</h1>
-
-
     {% for post in category_posts %}
         <li><a href="{% url 'articles' post.pk %} "> {{post.title }} </a>- by {{ post.author }} - {{ post.author.email }}<br>
             {{ post.body|slice:':500'|safe }}</li>

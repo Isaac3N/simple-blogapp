@@ -2,15 +2,19 @@
 {% block title %} Update blogPost {% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-    <h1>Delete posts </h1>
-    <br>
-    <h3>Delete: {{ post.title }}</h3>
-    <div clas='form-group'>
-        <form method="POST">{% csrf_token %}
-            <strong>Are you sure?</strong> <br> <br>
-            <button class="btn btn-danger">Delete Post</button>
-        </form>
-    </div>
+    {% if user.is_superuser or user.id == post.author.id %}
+        <h1>Delete posts </h1>
+        <br>
+        <h3>Delete: {{ post.title }}</h3>
+        <div clas='form-group'>
+            <form method="POST">{% csrf_token %}
+                <strong>Are you sure?</strong> <br> <br>
+                <button class="btn btn-danger">Delete Post</button>
+            </form>
+        </div>
+    {% else %}
+        <p>This page is not available, Go back to the home page: <a href="{% url 'home' %}"  <button type="button" class="btn btn-secondary"> Home</button></a></p>
+    {% endif %}
 {% else %}
     <p>This page is not available, Go back to the home page: <a href="{% url 'home' %}"  <button type="button" class="btn btn-secondary"> Home</button></a></p>
 

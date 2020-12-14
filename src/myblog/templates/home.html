@@ -6,7 +6,7 @@
 {% for post in object_list %}
 <!--To loop through all the posts in the queryset(object_list)-->
     <li><a href="{% url 'articles' post.pk %} "> {{post.title }} </a>- by {{ post.author }} - {{ post.author.email }}<br>
-        {{ post.body|slice:':500'|safe }}</li>
+        {{ post.snippet }}</li>
 {% endfor %}
 
 </ul>

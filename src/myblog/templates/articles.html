@@ -6,6 +6,10 @@
 <small>by: {{ post.author }} - {{ post.pub_date }}</small>
 <hr>
 <br>
+{% if post.header_image %}
+    <img src ='{{ post.header_image.url }}' width="300" height="300" >
+{% endif %}
+<br> <br>
 {{ post.body|safe }}
 <p>category: <a href="{% url 'category' post.category|slugify %}">{{ post.category|slugify }}</a></p>
 {% if user.is_authenticated %}

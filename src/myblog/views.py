@@ -4,6 +4,7 @@ from . models import Post, Category
 from . forms import PostForm
 from django.urls import reverse_lazy, reverse 
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 # Create your views here.
 #def home(request):
@@ -19,6 +20,7 @@ class HomeView(ListView):
     template_name = 'home.html'
     ordering = ['-pub_date']
     #ordering = ['-id']
+    paginate_by = 3 
 
     def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
@@ -48,6 +50,17 @@ class ArticleDetailView(DetailView):
         context['total_likes'] = total_likes
         return context
 
+class SearchResultsView(ListView):
+    model = Post
+    template_name = 'search_results.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Post.objects.filter(
+            Q(title__icontains=query) | Q(body__icontains=query)
+        )
+        return object_list
+        
 class AddPostView(CreateView):
     model = Post
     form_class = PostForm

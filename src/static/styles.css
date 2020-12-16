@@ -18,16 +18,18 @@ body{
     background: #708090;
 }
 
+.footer-class{
+    color: #0000;
+    background-color: #000000;
+}
 
 .item-container {
     background-color: #fff;
     color: black;
     padding: 50px;
     border-radius: 20px;
-    width: 300%;
-    column-gap: 30px;
     margin: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 .article-container{
     background-color: #fff;

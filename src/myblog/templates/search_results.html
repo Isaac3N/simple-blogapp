@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
 <div class="container" >
-    <h1 style="color: white;">Posts</h1>
+    <h2 style="color: white;">Search Results</h2>
     <div class = "main">
         <ul>
         {% for post in object_list %}
         <!--To loop through all the posts in the queryset(object_list)-->
-            <li class = "item-container"><a href="{% url 'articles' post.pk %} "> {{post.title }} </a>- by {{ post.author }} - {{ post.author.email }}<br>
-                {{ post.snippet }}</li>
+            <li class = "item-container">
+                <a href="{% url 'articles' post.pk %} "> {{post.title }} </a>- by {{ post.author }} - {{ post.author.email }}
+                <br><br>
+                {{ post.snippet|safe }}
+            </li>
         {% endfor %}
 
         </ul>

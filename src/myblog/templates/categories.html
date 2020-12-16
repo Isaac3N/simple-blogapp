@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-{% if category_posts %}
-    <h1>{{ cats }} category</h1>
-    {% for post in category_posts %}
-        <li><a href="{% url 'articles' post.pk %} "> {{post.title }} </a>- by {{ post.author }} - {{ post.author.email }}<br>
-            {{ post.body|slice:':500'|safe }}</li>
 
-    {% endfor %}
-{% else %}
-    <h2>This page does not exist</h2>
-{% endif %}
+<div class="container" >
+
+    {% if category_posts %}
+        <h2 style="color: white;">{{ cats }} category</h2>
+        {% for post in category_posts %}
+            <li class="item-container"><a href="{% url 'articles' post.pk %} "> {{post.title }} </a>- by {{ post.author }} - {{ post.author.email }}<br>
+            {{ post.body|slice:':500'|safe }}</li>
+        {% endfor %}
+    {% else %}
+        <h2>This page does not exist</h2>
+    {% endif %}
+    
+</div>
+        
 {% endblock %}

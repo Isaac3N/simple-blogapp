@@ -29,7 +29,7 @@ SECRET_KEY = 'u!a9bb^q720%!qv0zrcji9$$w=08dq&ex_$3eb9y#75xqx+qq9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'theupstartcoder.herokuapp.com']
 
 
 # Application definition

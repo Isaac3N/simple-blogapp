@@ -29,6 +29,7 @@ body{
     padding: 50px;
     border-radius: 20px;
     margin: 20px;
+    width: 300%;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 .article-container{

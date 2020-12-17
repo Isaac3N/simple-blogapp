@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+
+<div class="container" >
+    <div class="article-container">
+        <h1>{{ post.title }}</h1>
+        <small>by: {{ post.author }} - {{ post.pub_date }}</small>
+        <hr>
+        <br>
+        {% if post.header_image %}
+            <img src ='{{ post.header_image.url }}' width="300" height="300" >
+        {% endif %}
+        <br> <br>
+        {{ post.body|safe }}
+        <p>category: <a href="{% url 'category' post.category|slugify %}">{{ post.category|slugify }}</a></p>
+        {% if user.is_authenticated %}
+            {% if user.is_superuser or user.id == post.author.id %}
+                <br>
+                <a href="{% url 'update_post' post.pk %}">Update</a>
+                <a href="{% url 'delete_post' post.pk %}">Delete</a>
+            {% endif %}
+        {% endif %}
+        <br> 
+        <hr>
+        <form action= "{% url 'like_post' post.pk %}" method="POST">{% csrf_token %}
+            <button type="submit" name= "post_id", value="{{ post.id }}", class="btn  bg-transparent btn-sm">Please give this a : 👍 </button> - {{ total_likes }} likes
+            
+        </form>
+        <br> <br>
+        <hr>
+    </div>
+        <br> <br>
+        <a href="{% url 'home' %}" <button type="button" class="btn btn-secondary"> Go back </button></a>
+        <!-- The url has to be the name of the of the url added -->
+    
+</div>
+{% endblock %}

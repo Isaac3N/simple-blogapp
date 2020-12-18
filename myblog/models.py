@@ -2,8 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User 
 from django.urls import reverse
 from datetime import datetime, date 
-from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
+d
 
 
 #choices = [('coding', 'coding'), ('tech rants', 'tech rants'), ('web development', 'web development')]
@@ -26,7 +25,7 @@ class Post(models.Model):
     title_tag = models.CharField(max_length=25, default='TheUpstartcoder')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     #body = models.TextField()
-    body = RichTextField(blank=True, null=True)
+    body = models.TextField(blank=True, null=True)
     pub_date =models.DateField(auto_now_add=True)
     category = models.CharField( max_length=255, default="coding")
     snippet = models.CharField( max_length=1000)
